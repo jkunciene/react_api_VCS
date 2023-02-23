@@ -7,11 +7,12 @@ const SearchProducts = () => {
     //2-as state reikalingas issaugoti duomenis is API responso
     const [searchResult, setsearchResult] = useState([]);
 
-    const handleSubmit = (e) =>{
+    const handleChange = (e) =>{
         //form nori perkrauti puslapi, tada dingtu ivesta reiksme
         e.preventDefault();
         //tikrinti ar gaunu input reiksme
         console.log(searchValue);
+        setsearchValue(e.target.value)
     }
 
     //funkcija, kuri kreipsis i servisus, kad gautu duomenis
@@ -30,7 +31,7 @@ console.log(searchResult);
     return (
         <div className='container'>
             <h3 className='text-center my-3 text-secondary'>Find Product</h3>
-            <form onSubmit={handleSubmit}>
+           
                 <div className="mb-3">
                     <input
                         className='form-control'
@@ -38,10 +39,17 @@ console.log(searchResult);
                         placeholder='enter product name...'
                         name='searchValue'
                         value={searchValue}
-                        onChange={(e)=>setsearchValue(e.target.value)}
+                        onChange={handleChange}
                     />
                 </div>
-            </form>
+                {
+                 searchResult ? searchResult.map((item, index)=>(
+                    <div key={index}>
+                        <p>{item.title}</p>
+                        <p>{item.description}</p>
+                    </div>
+                  )) : <p>Nerasta</p>
+                }
         </div>
     )
 }
