@@ -18,6 +18,7 @@ const getSpecific = async (product) => {
     try {
         const response = await fetch(`${API_URL}/search?q=${product}`)
         const data = await response.json();
+        //console.log(data);
         return data;
 
     } catch (error) {

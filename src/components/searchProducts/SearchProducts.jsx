@@ -11,19 +11,21 @@ const SearchProducts = () => {
         //form nori perkrauti puslapi, tada dingtu ivesta reiksme
         e.preventDefault();
         //tikrinti ar gaunu input reiksme
+        console.log(searchValue);
     }
 
     //funkcija, kuri kreipsis i servisus, kad gautu duomenis
     const getProductsFromApi = (item) => {
         getSpecific(item).then((response) => {
             //gautus duomenis uzsaugos i state
-            setsearchResult([...response])
+            setsearchResult([...response.products])
         })
     }
     //stebes , kada pasikeicia input reiksme state, tik tada iskvies duomenu gavimo funkcija
     useEffect(() => {
         getProductsFromApi(searchValue);
     }, [searchValue])
+console.log(searchResult);
 
     return (
         <div className='container'>
