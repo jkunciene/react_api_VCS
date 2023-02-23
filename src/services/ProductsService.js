@@ -11,4 +11,18 @@ const getAllProducts = async () => {
     }
 
 }
-export default getAllProducts;
+
+//https://dummyjson.com/products/search?q=phone
+
+const getSpecific = async (product) => {
+    try {
+        const response = await fetch(`${API_URL}/search?q=${product}`)
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { getAllProducts, getSpecific} 

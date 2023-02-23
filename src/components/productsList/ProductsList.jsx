@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import OneProduct from '../oneProduct/OneProduct';
 
-import getAllProducts from '../../services/ProductsService';
+import { getAllProducts } from '../../services/ProductsService';
 
 const ProductsList = () => {
     const [items, setItems] = useState([]);
@@ -17,7 +17,7 @@ const ProductsList = () => {
         getProducts();
     }, []);
 
-    console.log(items)
+   // console.log(items)
   return (
     <div>
       <OneProduct items={items}/>

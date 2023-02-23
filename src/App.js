@@ -1,10 +1,12 @@
 import ProductsList from "./components/productsList/ProductsList";
+import SearchProducts from "./components/searchProducts/SearchProducts";
 
 
 function App() {
   return (
     <div>
-     <ProductsList/>
+      <SearchProducts />
+      {/* <ProductsList /> */}
     </div>
   );
 }
